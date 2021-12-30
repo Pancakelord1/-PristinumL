@@ -1,13 +1,13 @@
 |||PristiniumL|||
 
 PristiniumL(or simply Pristinium) is a high-level, one of a kind interpreted language designed for making languages, it's a unique object-oriented language made in
-python, following the style of python and Haskell(indents instead of braces for scopes and a simple, easy to learn syntax while also being extremely versatile)
+python, following the style of Python and Haskell(indents instead of braces for scopes and a simple, easy to learn syntax while also being extremely versatile)
 along with the comforting and useful features of Java and C++. We all know that the most popular choices for creating languages are Java and C++ but have you ever 
 wondered why? Because of things Python and other languages don't have such as more intricate classes and easy use of the Visitor Pattern, sure python is really nice 
 to code in with the object-oriented-programming and satisfying tab button for whenever you want to define scopes rather than clunky braces but does it really have 
-what youneed to make a programming language without copious amounts of stress? The answer is no. With this new language, we eliminate that stress and tedious effort
-by adding utilities from Java and C++ such as the *final* modifier or *.Visitor* dot notation method as well as adding some of our own neat syntax, once you use 
-Pristinium, you won't want to stop.
+what you need to make a programming language without copious amounts of stress? The answer is no. With this new language, we eliminate that stress and tedious
+effort, by adding utilities from Java and C++ such as the *final* modifier or *.Visitor* dot notation method as well as adding some of our own neat syntax, once you
+use Pristinium, you won't want to stop.
 
 EXAMPLE:
 
