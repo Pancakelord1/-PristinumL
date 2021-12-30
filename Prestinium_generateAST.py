@@ -1,6 +1,7 @@
 import sys
 import types
 from typing import List
+import pylox.tokentype as TokenType
 class generateAST:
     def main(self):
         if len(sys.argv) != 1:
@@ -16,7 +17,7 @@ class generateAST:
         Path = OutputDir + "\\" + BaseName + ".py"
         with open(Path, "w", encoding="UTF-8") as writer:
             writer.write("class" + BaseName + ":")
-        for type in types:
+        for type in TokenType.types:
             ClassName = type.split(":", [0])
             Fields = type.split(":", [1])
             self.DefineType(writer, BaseName, ClassName, Fields)
