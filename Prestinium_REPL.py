@@ -1,37 +1,40 @@
 import sys
 import pathlib
 from pylox.scanner import *
+import JYTHON_generateAST
 class REPL:
     hadError = False
-    def Main():
+    def Main(self):
         if len(sys.argv) > 1:
             print("Usage: pylox [script]")
             sys.exit(64)
         elif len(sys.argv) == 1:
-            RunFile(sys.argv[0])
+            self.RunFile(sys.argv[0])
         else:
-            RunPrompt()
+            self.RunPrompt()
 
-    def RunFile(path):
+    def RunFile(self,path):
         bytes = pathlib.Path(path).read_bytes()
-        Run(bytes.decode())
-        if hadError == True:
+        self.Run(bytes.decode())
+        if self.hadError == True:
             sys.exit(65)
             
-    def RunPrompt():
+    def RunPrompt(self):
         hadError = False
         while True:
-            line = input("JYTHON$| ")
+            line = input("PrestiniumL $>| ")
             if not line: break
-            Run(line)
+            self.Run(line)
  
-    def Run(source: str):
+    def Run(self, source: str):
         tokens = Scanner(source).scan_tokens()
-        for token in tokens:
-            print(token)
+        Parser = (tokens)
+        expression = Parser.parse 
+        if self.hadError():
+            return print(JYTHON_generateAST.print(expression))
 
-    def report(line: int, where: str, message: str):
+    def report(self,line: int, where: str, message: str):
         print(f"[line {line}], Error at {where}: {message}", file=sys.stderr)
         hadError = True
         def error(line: int, message: str):
-            report(line, "", message)
+            self.report(line, "", message)
