@@ -11,6 +11,48 @@ use Pristinium, you won't want to stop.
 
 EXAMPLE:
 
+java:
+
+*class Interpreter implements Expr.Visitor<Object> {
+}*
+  *@Override
+  public Object visitLiteralExpr(Expr.Literal expr) {
+    return expr.value;
+  }*
+   *@Override
+  public Object visitGroupingExpr(Expr.Grouping expr) {
+    return evaluate(expr.expression);
+  }*
+    *private Object evaluate(Expr expr) {
+    return expr.accept(this);
+  }*
+  
+ Python:
+  
+  *from abc import abstractmethod*
+  *class interpreter:*
+      *@abstractmethod*
+      *def accept(self, visitor):*
+          *pass*
+      *def VisitLiteralExpr(self, expr):*
+          *return expr.value*
+      *def VisitGroupingExpr(self, expr):*
+          *return self.evaluate(expr.expression)*
+      *def evaluate(self, expr):*
+          *return expr.accept(self)*
+  
+  Prestinium:
+  
+  *class Interpreter/Visitor:*
+    *PUBLIC def VisitLiteralExpr(this, expr):*
+      *return expr.val*
+    *PUBLIC def VisitGroupingExpr(this, expr):*
+          *return this.evaluate(expr.expression)*
+    *PUBLIC def evaluate(this, expr):*
+          *return expr.accept(this)*
+    
+
+
 Visitor pattern is a really powerful and widely-used way of solving the Expression Problem, a problem with the concept of creating languages which has plagued 
 language hackers for decades. As I was writing this language, I used Visitor pattern in my code and by lord it is not fun in python and most other languages,
 however, in Java and C++ it's a piece of cake! Wouldn't it be nice if python had something like that for Visitor pattern and the abundance of bits and bobs in those 2 languages which make creating a language bareable? Well your dream has come true!
